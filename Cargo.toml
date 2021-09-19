@@ -1,0 +1,15 @@
+[package]
+name = "saw"
+authors = ["bR3iN <bR3iN@posteo.de>"]
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+regex = "1.5.4"
+clap = "~2.27.0"
+enum_dispatch = "0.3.7"
+nom = "7.0.0"
+anyhow = "1.0.44"
+
