@@ -1,15 +1,15 @@
-#saw
+# saw
 saw is a command-line application written in rust that aims to combine common use cases of **s**ed and **aw**k into one tool with an intuitive and easy-to-use syntax.
 
 saw is still in development and is not feature-complete yet.
 
-#Usage
+# Usage
 saw processes text line-by-line either from a file or from standard input. 
 Its basic usage is
-```bash
+```
 saw [-f <path>] <prog> ...
 ```
-where `<path>` can be the path of an input file.
+where `<path>` is the path of an input file.
 
 A saw program consists of a list of "atoms". An atom can be
 considered a text processing unit that takes an input string, modifies
@@ -20,9 +20,9 @@ Atoms may also have an internal state that allows them to be "context
 aware"; that is, an atom's behaviour might depend on the lines
 previously processed.
 
-#Example
+# Example
 Consider the following INI file.
-```INI
+```ini
 ; example.ini
 [Section 1]
 name=value1
@@ -30,7 +30,8 @@ name=value1
 [Section 2]
 name=value2
 ```
-To use saw to extract the line starting with `name` from `[Section 2]`, use
+The line in `[Section 2]` starting with `name` can be extracted from this file
+with the following command:
 ```bash
 saw -f example.ini filter-range '^\[Section 2' '^\[' filter '^name'
 ```
@@ -47,7 +48,7 @@ This saw program can be read as:
  [boilerplate
  code](https://stackoverflow.com/questions/22550265/read-certain-key-from-certain-section-of-ini-file-sed-awk).
 
-#List of Atoms
+# List of Atoms
 saw's atoms always consist of one keyword (that might have one or more
 aliases) as well as a fixed number of arguments. The keyword and
 arguments are passed as seperate arguments to the `saw` command.
